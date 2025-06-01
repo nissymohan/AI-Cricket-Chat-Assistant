@@ -1,0 +1,523 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page Background */
+body {
+  font-family: 'Inter', sans-serif;
+  background: url('/static/background.jpg') center/cover no-repeat fixed;
+  background-color: #0e0e0e;
+  color: white;
+  height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  width: 90%;
+  max-width: 960px;
+  height: 60px;
+  margin: 20px auto;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.left, .center, .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  color: white;
+  white-space: nowrap;
+}
+
+.logo {
+  height: 36px;
+  border-radius: 50%;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 0 30px 30px;
+  height: calc(100% - 100px); /* subtract navbar height */
+  box-sizing: border-box;
+}
+
+
+/* Panel Containers */
+.left-panel,
+.chat-section {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  scroll-behavior: smooth;
+
+  /* Sleek scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #4e4eff transparent;
+}
+
+/* Chat Box (messages) */
+.chat-box {
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Message Bubbles */
+.message {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  max-width: 70%;
+  line-height: 1.4;
+  font-size: 0.95rem;
+  background-color: #2d2d2d;
+  align-self: flex-start;
+}
+
+.user {
+  background-color: #4e4eff;
+  align-self: flex-end;
+}
+
+/* Chat Input Area */
+.chat-input {
+  display: flex;
+  padding: 1rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.chat-input button {
+  background: #4e4eff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* Quick Actions & Match Analysis Panels */
+.quick-actions,
+.match-analysis {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.quick-actions h3,
+.match-analysis h3 {
+  margin-bottom: 10px;
+}
+
+.quick-actions ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.quick-actions li {
+  margin: 10px 0;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.quick-actions li:hover {
+  color: #4e4eff;
+}
+
+/* Add this CSS to the bottom of your style.css file */
+.live-stats {
+  flex-shrink: 0;
+  margin-bottom: 10px;
+}
+
+/* Live Stats Styling */
+.live-stats p {
+  margin: 8px 0;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.live-stats span {
+  color: #4e4eff;
+  font-weight: bold;
+}
+
+/* Quick Actions - Make them clickable */
+.quick-actions li {
+  margin: 10px 0;
+  color: #ddd;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.quick-actions li:hover {
+  color: #4e4eff;
+  background-color: rgba(78, 78, 255, 0.1);
+  border-color: #4e4eff;
+  transform: translateY(-2px);
+}
+
+.quick-actions li:active {
+  transform: translateY(0);
+}
+
+/* Match Analysis - Better spacing */
+.match-analysis p {
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.match-analysis span {
+  color: #4e4eff;
+  font-weight: bold;
+}
+
+/* Message improvements */
+.message.bot,
+.message.ai {
+  background-color: #2d2d2d;
+  align-self: flex-start;
+}
+
+.message.user {
+  background-color: #4e4eff;
+  align-self: flex-end;
+}
+
+/* Button states */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading animation for spans */
+.loading {
+  color: #888 !important;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+.left-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.live-stats {
+  flex-shrink: 0;
+}
+
+}
+.current-matches {
+  flex-grow: 0;
+  overflow: visible;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.matches-list {
+  overflow: visible;
+  max-height: none;
+}
+
+/* Add this to your style.css */
+.ai-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(78, 78, 255, 0.3);
+}
+
+.ai-selector label {
+  font-size: 0.9em;
+  color: #ddd;
+  font-weight: 500;
+}
+
+.ai-selector select {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.match-item {
+  margin-bottom: 10px;
+}
+
+
+.ai-selector select:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #4e4eff;
+}
+
+.ai-selector select option {
+  background: #2d2d2d;
+  color: white;
+  padding: 5px;
+}
+
+.ai-status {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(78, 78, 255, 0.2);
+  color: #4e4eff;
+  margin-left: auto;
+}
+
+.ai-status.thinking {
+  background: rgba(255, 165, 0, 0.2);
+  color: orange;
+  animation: pulse 1.5s infinite;
+}
+
+.ai-status.dual {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Add this to your style.css */
+.current-matches {
+  flex-grow: 1; /* Fills remaining height */
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevents overflow from children */
+}
+
+.matches-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-top: 10px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #4e4eff transparent;
+}
+
+.matches-list::-webkit-scrollbar {
+  width: 6px;
+}
+.matches-list::-webkit-scrollbar-thumb {
+  background-color: #4e4eff;
+  border-radius: 10px;
+}
+.match-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; /* Allow wrapping */
+  word-break: break-word;
+}
+
+
+
+.match-name {
+  font-weight: bold;
+  color: white;
+  font-size: 0.9em;
+}
+
+.match-venue {
+  color: #ddd;
+  font-size: 0.8em;
+  margin: 3px 0;
+}
+
+.match-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7em;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.match-status.live {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+}
+
+.match-status.upcoming {
+  background: rgba(255, 165, 0, 0.2);
+  color: orange;
+}
+
+.match-status.concluded {
+  background: rgba(128, 128, 128, 0.2);
+  color: #ccc;
+}
+
+.match-score {
+  font-size: 0.8em;
+  color: #4e4eff;
+  margin-top: 3px;
+}
+
+.matches-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 6px; /* leave space for styled scrollbar */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #4e4eff transparent;
+}
+
+/* For Chrome, Edge, Safari */
+.matches-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.matches-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.matches-list::-webkit-scrollbar-thumb {
+  background-color: #4e4eff;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.match-item {
+  background: rgba(78, 78, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 8px 0;
+  border-left: 3px solid #4e4eff;
+  transition: all 0.3s ease;
+}
+
+.match-item:hover {
+  background: rgba(78, 78, 255, 0.15);
+  transform: translateX(2px);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;  /* ✅ Prevent full page scroll */
+}
+  
+.matches-list {
+  height: 200px; /* fixed visible area */
+  overflow: hidden;
+  position: relative;
+}
+
+.matches-list-inner {
+  display: flex;
+  flex-direction: column;
+  animation: scroll-up 20s linear infinite;
+}
+
+/* Optional: style for each match item */
+.match-item {
+  padding: 10px;
+  background: rgba(78, 78, 255, 0.1);
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 3px solid #4e4eff;
+}
+
+/* Auto scroll animation */
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%); /* adjust based on item count */
+  }
+}
+.matches-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #4e4eff transparent;
+}
+
+.matches-list::-webkit-scrollbar { width: 6px; }
+.matches-list::-webkit-scrollbar-thumb { background-color: #4e4eff; border-radius: 10px; }

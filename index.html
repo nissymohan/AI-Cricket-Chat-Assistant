@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fantasy Cricket Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ✅ NAVBAR ON TOP -->
+  <header class="navbar">
+    <div class="left">
+      <img src="/static/logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="center">AI Cricket Chat Assistant</div>
+    <div class="right">Hackathon 2025</div>
+  </header>
+
+  <!-- ✅ FULL PAGE 3-COLUMN LAYOUT BELOW NAVBAR -->
+  <div class="main-layout">
+    
+    <!-- LEFT Column -->
+    <div class="left-panel">
+      <h3>🔥 Live Stats</h3>
+      <div class="live-stats">
+        <p>🟢 Active Users: <span class="active-users">Loading...</span></p>
+        <p>🏆 Teams Created: <span class="teams-created">Loading...</span></p>
+        <p>📈 Success Rate: <span class="success-rate">Loading...</span></p>
+        <p>🏏 Live Contests: <span class="live-contests">Loading...</span></p>
+      </div>
+      
+      <div class="current-matches">
+        <h3>📺 Live Matches</h3>
+        <div class="matches-list">
+          <div class="match-item">Loading matches...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CENTER Chat Box -->
+    <div class="chat-section">
+      <h2>💬 AI Cricket Assistant</h2>
+
+      <!-- Chat Messages -->
+      <div class="chat-box" id="chat-messages">
+        <div class="message ai">Hello! Ask me about live IPL matches, player recommendations, or team strategies! 🏏</div>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form class="chat-input" id="chat-form">
+        <input type="text" placeholder="Ask about live IPL matches, players, strategies..." id="messageInput" autocomplete="off">
+        <button type="submit" id="sendButton">➤</button>
+      </form>
+    </div>
+
+    <!-- RIGHT Column -->
+    <div class="right-panel">
+      <div class="quick-actions">
+        <h3>⚡ Quick Actions</h3>
+        <ul>
+          <li data-action="best-team">👥 Best team today</li>
+          <li data-action="differential-picks">🎯 Differentials</li>
+          <li data-action="captain-options">👑 Captain picks</li>
+          <li data-action="budget-picks">💰 Budget picks</li>
+          <li data-action="fantasy-tips">💡 Fantasy tips</li>
+        </ul>
+      </div>
+
+      <div class="match-analysis">
+        <h3>📊 Match Insights</h3>
+        <p>🌡️ Weather: <span class="temperature">Loading...</span></p>
+        <p>💨 Wind: <span class="wind-speed">Loading...</span></p>
+        <p>💧 Humidity: <span class="humidity">Loading...</span></p>
+        <p>🏏 Batting Friendly: <span class="batting-friendly">Loading...</span></p>
+        <p>⚡ Pace Support: <span class="pace-support">Loading...</span></p>
+        <p>🌀 Spin Support: <span class="spin-support">Loading...</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Add the AI Integration -->
+  <script src="cricket-ai.js"></script>
+
+</body>
+</html>
